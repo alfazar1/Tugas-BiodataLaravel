@@ -1,0 +1,26 @@
+<?php
+
+
+use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+
+Route::get('/', function () {
+    return view('blackbiodata');
+});
+
+Route::get('/biodata', function (Request $request) {
+    // $data = $request->validate([
+    //     'nama' => 'required|string|max:100',
+    //     'alamat' => 'required|string|max:255',
+    //     'jenis_kelamin' => 'required|in:Laki-laki,Perempuan',
+    //     'tanggal_lahir' => 'required|date',
+    // ]);
+
+    $nama=$_GET['nama'];
+    $alamat=$_GET['alamat'];
+    $jenis_kelamin=$_GET['jenis_kelamin'];
+    $tanggal_lahir=$_GET['tanggal_lahir'];
+
+    return view('index', compact('nama','alamat','jenis_kelamin','tanggal_lahir'));
+});
+
